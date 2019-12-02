@@ -10,10 +10,10 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>food-order-jar</artifactId>
+  <artifactId>food-order-core</artifactId>
   <packaging>jar</packaging>
 
-  <name>food-order-jar</name>
+  <name>food-order-core</name>
 
   <dependencies>
     <dependency>

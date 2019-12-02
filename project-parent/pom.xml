@@ -13,7 +13,7 @@
 
     <modules>
         <module>food-order-web</module>
-        <module>food-order-jar</module>
+        <module>food-order-core</module>
     </modules>
 
     <properties>
