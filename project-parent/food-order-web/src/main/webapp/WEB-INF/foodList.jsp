@@ -1,0 +1,34 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Dishes List</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Ingredients</td>
+        <td>Discount</td>
+        <td>Weight</td>
+        <td>Cooking Time</td>
+        <td>Delivery</td>
+    </tr>
+    <c:forEach items="${foodList}" var="food">
+        <tr>
+            <td><c:out value="${food.id}"/></td>
+            <td><c:out value="${food.name}"/></td>
+            <td><c:out value="${food.price}"/></td>
+            <td><c:out value="${food.ingredients}"/></td>
+            <td><c:out value="${food.discount}"/></td>
+            <td><c:out value="${food.weight}"/></td>
+            <td><c:out value="${food.cookingTime}"/></td>
+            <td><c:out value="${food.delivery}"/></td>
+        </tr>
+    </c:forEach>
+</table>
+</body>
+</html>
