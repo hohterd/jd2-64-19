@@ -33,7 +33,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public void removeDish(long id) {
         for (Food dish : dishes) {
-            if ((int) id == dish.getId()) {
+            if (dish.getId().equals(id)) {
                 dishes.remove(dish);
             }
         }
