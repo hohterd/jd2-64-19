@@ -1,10 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>Dishes List</title>
-</head>
-<body>
+
+<jsp:include page="/WEB-INF/include/header.jsp"/>
 
 <table>
     <tr>
@@ -30,5 +27,5 @@
         </tr>
     </c:forEach>
 </table>
-</body>
-</html>
+
+<jsp:include page="/WEB-INF/include/footer.jsp"/>
