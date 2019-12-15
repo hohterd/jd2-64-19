@@ -7,7 +7,7 @@
     |
     <a href="${pageContext.request.contextPath}/foodList">Food List</a>
     |
-    <a href="${pageContext.request.contextPath}/userInfo">Account Info</a>
+    <a href="${pageContext.request.contextPath}/foodCreate">Add Dish</a>
     |
     <a href="${pageContext.request.contextPath}/login">Login</a>
 

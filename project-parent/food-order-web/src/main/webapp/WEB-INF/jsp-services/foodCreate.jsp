@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="/WEB-INF/include/header.jsp"%>
+<jsp:include page="/WEB-INF/include/header.jsp"/>
 
 <form method="post" action="${pageContext.request.contextPath}/foodCreate">
     <label> Name: <input type="text" name="name"/> </label>

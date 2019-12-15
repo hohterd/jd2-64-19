@@ -20,7 +20,6 @@
 
 <ul>
     <li>Login</li>
-    <li>Storing user information in cookies</li>
     <li>Food List</li>
     <li>Add new Dish</li>
     <li>
