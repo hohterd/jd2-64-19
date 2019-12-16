@@ -7,7 +7,7 @@
 <html lang="${param.lang}">
 <head>
     <meta charset="UTF-8">
-    <title><fmt:message key="foodorder.app.title"/></title>
+    <title>Food Order</title>
 </head>
 <body>
 

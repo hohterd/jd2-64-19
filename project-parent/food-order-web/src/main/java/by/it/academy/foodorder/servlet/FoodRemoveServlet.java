@@ -17,13 +17,18 @@ public class FoodRemoveServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+        removeFood(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        removeFood(req, resp);
+    }
+
+    private void removeFood(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         long id = Long.parseLong(req.getParameter("id"));
         foodService.removeDish(id);
+        resp.sendRedirect(req.getContextPath() + "/foodList");
     }
 }
 
