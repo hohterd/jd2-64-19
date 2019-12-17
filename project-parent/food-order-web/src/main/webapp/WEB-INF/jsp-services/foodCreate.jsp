@@ -3,6 +3,8 @@
 <%@ taglib prefix="a" uri="/WEB-INF/taglib/auth.tld" %>
 
 <jsp:include page="/WEB-INF/include/header.jsp"/>
+<jsp:include page="/WEB-INF/include/menu.jsp" />
+
 <html>
 <head>
     <style type="text/css">

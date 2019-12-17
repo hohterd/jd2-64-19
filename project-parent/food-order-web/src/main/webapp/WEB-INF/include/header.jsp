@@ -6,8 +6,9 @@
 <fmt:setBundle basename="messages"/>
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
-        <h1 style="margin-top: 10px">Food-Order</h1>
+        <h1 style="margin-top: 10px"><a href="${pageContext.request.contextPath}/home">Food-Order</a></h1>
     </div>
+
 
     <div style="float: right; padding: 15px; text-align: right;">
         <!-- User store in session with attribute: loginedUser -->
