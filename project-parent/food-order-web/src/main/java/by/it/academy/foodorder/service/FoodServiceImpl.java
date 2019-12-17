@@ -4,12 +4,15 @@ import by.it.academy.foodorder.food.Food;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class FoodServiceImpl implements FoodService {
 
     private static final FoodService INSTANCE = new FoodServiceImpl();
 
     private final List<Food> dishes;
+
+    private AtomicLong id = new AtomicLong();
 
     private FoodServiceImpl() {
         dishes = new ArrayList<>();
@@ -21,12 +24,12 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public List<Food> getAllDishes() {
-        return dishes;
+        return new ArrayList<>(dishes);
     }
 
     @Override
     public void addNewDishes(Food food) {
-        food.setId((long) dishes.size() + 1);
+        food.setId(id.incrementAndGet());
         dishes.add(food);
     }
 
@@ -35,6 +38,7 @@ public class FoodServiceImpl implements FoodService {
         for (Food dish : dishes) {
             if (dish.getId().equals(id)) {
                 dishes.remove(dish);
+                break;
             }
         }
     }
@@ -45,6 +49,7 @@ public class FoodServiceImpl implements FoodService {
             if (food.getId().equals(dish.getId())) {
                 dishes.remove(dish);
                 dishes.add(food);
+                break;
             }
         }
     }
