@@ -1,7 +1,7 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.foodorder.service.FoodService;
-import by.it.academy.foodorder.service.FoodServiceImpl;
+import by.it.academy.project.service.FoodService;
+import by.it.academy.project.service.FoodServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

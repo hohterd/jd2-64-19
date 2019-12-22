@@ -2,7 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<fmt:setLocale scope="session" value="${param.lang}"/>
+<c:if test="${param.lang != null}">
+    <% session.setAttribute("foodorder_locale", request.getParameter("lang")); %>
+</c:if>
+<c:if test="${sessionScope.foodorder_locale != null}">
+    <fmt:setLocale value="${sessionScope.foodorder_locale}"/>
+</c:if>
 <fmt:setBundle basename="messages"/>
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
@@ -15,6 +20,10 @@
         <c:if test="${user != null}"> Hello <b>${user.userName}</b>
             <a href="${pageContext.request.contextPath}/logout">logout</a>
         </c:if>
+    </div>
+    <div style="float: right; padding: 15px; text-align: right;">
+        <a href="?lang=en">en</a> |
+        <a href="?lang=ru">ru</a>
     </div>
 </div>
 

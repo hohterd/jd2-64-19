@@ -36,6 +36,9 @@
     </table>
 </form>
 
+<p style="color:black;">Admin User: Admin password: qwerty</p>
+<p style="color:black;">Simple User: User password: 12345</p>
+
 <jsp:include page="/WEB-INF/include/footer.jsp"/>
 </body>
 </html>

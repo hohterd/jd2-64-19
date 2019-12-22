@@ -1,7 +1,7 @@
-package by.it.academy.foodorder.service;
+package by.it.academy.project.service;
 
 
-import by.it.academy.foodorder.food.User;
+import by.it.academy.project.models.User;
 
 import java.util.Optional;
 

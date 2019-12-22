@@ -1,8 +1,8 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.foodorder.food.User;
-import by.it.academy.foodorder.service.UserService;
-import by.it.academy.foodorder.service.UserServiceImpl;
+import by.it.academy.project.models.User;
+import by.it.academy.project.service.UserService;
+import by.it.academy.project.service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

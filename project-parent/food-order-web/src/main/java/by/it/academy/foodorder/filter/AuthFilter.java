@@ -1,6 +1,6 @@
 package by.it.academy.foodorder.filter;
 
-import by.it.academy.foodorder.food.User;
+import by.it.academy.project.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
