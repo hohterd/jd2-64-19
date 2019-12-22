@@ -34,7 +34,7 @@
     <div class="main">
         <div class="field">
             <label for="id">Id:</label>
-            <input type="text" id="id" name="name"/>
+            <input type="number" id="id" name="id"/>
         </div>
 
         <div class="field">

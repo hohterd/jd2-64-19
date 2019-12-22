@@ -29,7 +29,7 @@
         </tr>
         <td>
             <a:auth path="/removeFood">
-                <a href="${delete_link}">Delete</a>
+                <a href="${pageContext.request.contextPath}/removeFood?id=${food.id}">Delete</a>
             </a:auth>
         </td>
         <td>
