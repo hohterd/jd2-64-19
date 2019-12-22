@@ -35,7 +35,7 @@
     <div class="main">
 
         <div class="field">
-            <label for="menu">Menu</label>
+            <label for="menu">Category:</label>
                 <select id="menu" name="menuId">
                     <c:forEach var="menu" items="${menu}">
                         <option value="${menu.id}"

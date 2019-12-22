@@ -38,6 +38,16 @@
         </div>
 
         <div class="field">
+            <label for="menu">Category:</label>
+            <select id="menu" name="menuId">
+                <c:forEach var="menu" items="${menu}">
+                    <option value="${menu.id}"
+                            <c:if test="${menuSelected == menu.id}">selected='selected'</c:if> >${menu.name}</option>
+                </c:forEach>
+            </select>
+        </div>
+
+        <div class="field">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name"/>
         </div>
