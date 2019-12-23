@@ -1,4 +1,4 @@
-package by.it.academy.project.models;
+package by.it.academy.foodorder.models;
 
 import java.util.Objects;
 

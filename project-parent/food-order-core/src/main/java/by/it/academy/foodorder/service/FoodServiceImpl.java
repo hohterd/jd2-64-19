@@ -1,6 +1,6 @@
-package by.it.academy.project.service;
+package by.it.academy.foodorder.service;
 
-import by.it.academy.project.models.Food;
+import by.it.academy.foodorder.models.Food;
 
 import java.util.ArrayList;
 import java.util.List;

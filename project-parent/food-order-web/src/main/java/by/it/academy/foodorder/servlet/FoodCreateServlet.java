@@ -1,9 +1,9 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.project.models.Food;
-import by.it.academy.project.service.FoodService;
-import by.it.academy.project.service.FoodServiceImpl;
-import by.it.academy.project.service.MenuServiceImpl;
+import by.it.academy.foodorder.models.Food;
+import by.it.academy.foodorder.service.FoodService;
+import by.it.academy.foodorder.service.FoodServiceImpl;
+import by.it.academy.foodorder.service.MenuServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
