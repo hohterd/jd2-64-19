@@ -1,6 +1,6 @@
 package by.it.academy.foodorder.tags;
 
-import by.it.academy.foodorder.food.User;
+import by.it.academy.foodorder.models.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

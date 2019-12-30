@@ -3,6 +3,7 @@
 <%@ taglib prefix="a" uri="/WEB-INF/taglib/auth.tld" %>
 
 <jsp:include page="/WEB-INF/include/header.jsp"/>
+<jsp:include page="/WEB-INF/include/menu.jsp" />
 
 <table>
     <tr>
@@ -26,6 +27,14 @@
             <td><c:out value="${food.cookingTime}"/></td>
             <td><c:out value="${food.delivery}"/></td>
         </tr>
+        <td>
+            <a:auth path="/removeFood">
+                <a href="${pageContext.request.contextPath}/removeFood?id=${food.id}">Delete</a>
+            </a:auth>
+        </td>
+        <td>
+            <a href="${pageContext.request.contextPath}/updateFood">Update</a>
+        </td>
     </c:forEach>
 </table>
 

@@ -1,8 +1,11 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.foodorder.food.Food;
+import by.it.academy.foodorder.models.Food;
 import by.it.academy.foodorder.service.FoodService;
 import by.it.academy.foodorder.service.FoodServiceImpl;
+import by.it.academy.foodorder.service.MenuServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +17,13 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/updateFood")
 public class FoodUpdateServlet extends HttpServlet {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(FoodCreateServlet.class);
     private FoodService foodService = FoodServiceImpl.getService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("menuSelected", 1L);
+        req.setAttribute("menu", MenuServiceImpl.getService().getAll());
         req.getRequestDispatcher("/WEB-INF/jsp-services/foodUpdate.jsp").forward(req, resp);
     }
 
@@ -25,6 +31,7 @@ public class FoodUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("id");
+        String menuId = req.getParameter("menuId");
         String name = req.getParameter("name");
         String price = req.getParameter("price");
         String ingredients = req.getParameter("ingredients");
@@ -33,6 +40,8 @@ public class FoodUpdateServlet extends HttpServlet {
         String cookingTime = req.getParameter("cookingTime");
         boolean delivery = req.getParameter("delivery") != null;
 
+        LOGGER.info("menu id: {}", menuId);
+        log("menu id: " + menuId);
         Food food = new Food(Long.valueOf(id), name, Long.valueOf(price), ingredients, Long.valueOf(discount), Long.valueOf(weight),
                 Long.valueOf(cookingTime), delivery);
 

@@ -1,6 +1,6 @@
 package by.it.academy.foodorder.service;
 
-import by.it.academy.foodorder.food.Food;
+import by.it.academy.foodorder.models.Food;
 
 import java.util.List;
 

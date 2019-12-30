@@ -1,6 +1,6 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.foodorder.food.User;
+import by.it.academy.foodorder.models.User;
 import by.it.academy.foodorder.service.UserService;
 import by.it.academy.foodorder.service.UserServiceImpl;
 
@@ -27,10 +27,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
-        String rememberMeStr = req.getParameter("rememberMe");
-        boolean remember = "Y".equals(rememberMeStr);
-
-        req.getParameter("language");
 
         String errorMsg = "";
         boolean hasError = false;

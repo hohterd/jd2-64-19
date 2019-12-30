@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:include page="/WEB-INF/include/header.jsp"/>
+<jsp:include page="/WEB-INF/include/menu.jsp" />
 
 <html>
 <head>
@@ -33,7 +34,17 @@
     <div class="main">
         <div class="field">
             <label for="id">Id:</label>
-            <input type="text" id="id" name="name"/>
+            <input type="number" id="id" name="id"/>
+        </div>
+
+        <div class="field">
+            <label for="menu">Category:</label>
+            <select id="menu" name="menuId">
+                <c:forEach var="menu" items="${menu}">
+                    <option value="${menu.id}"
+                            <c:if test="${menuSelected == menu.id}">selected='selected'</c:if> >${menu.name}</option>
+                </c:forEach>
+            </select>
         </div>
 
         <div class="field">
