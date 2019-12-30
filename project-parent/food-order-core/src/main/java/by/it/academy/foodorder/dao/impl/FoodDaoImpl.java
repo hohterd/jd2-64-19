@@ -117,12 +117,12 @@ public class FoodDaoImpl extends AbstractDao implements FoodDao {
     }
 
     private Food mapFood(ResultSet resultSet) throws SQLException {
-        Long foodId = resultSet.getLong("id");
-        String name = resultSet.getString("first_name");
-        String ingredients = resultSet.getString("middle_name");
-        Long weight = resultSet.getLong("last_name");
-        Long cookingTime = resultSet.getLong("phone");
-        Long price = resultSet.getLong("phone");
+        Long foodId = resultSet.getLong("dish_id");
+        String name = resultSet.getString("dish_name");
+        String ingredients = resultSet.getString("ingredients");
+        Long weight = resultSet.getLong("weight");
+        Long cookingTime = resultSet.getLong("cooking_time");
+        Long price = resultSet.getLong("price");
         return new Food(foodId, name, ingredients, weight, cookingTime, price);
     }
 
