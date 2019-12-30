@@ -1,57 +1,88 @@
 package by.it.academy.foodorder.service;
 
+import by.it.academy.foodorder.dao.FoodDao;
+import by.it.academy.foodorder.dao.impl.FoodDaoImpl;
 import by.it.academy.foodorder.models.Food;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Optional;
 
 public class FoodServiceImpl implements FoodService {
 
+    private static final Logger logger = LoggerFactory.getLogger(FoodServiceImpl.class);
     private static final FoodService INSTANCE = new FoodServiceImpl();
 
-    private final List<Food> dishes;
-
-    private AtomicLong id = new AtomicLong();
+    private final FoodDao foodDao = FoodDaoImpl.getInstance();
 
     private FoodServiceImpl() {
-        dishes = new ArrayList<>();
     }
 
-    public static FoodService getService(){
+    public static FoodService getService() {
         return INSTANCE;
     }
 
     @Override
     public List<Food> getAllDishes() {
-        return new ArrayList<>(dishes);
+        logger.debug("Get all dishes");
+        try {
+            return foodDao.getAll();
+        } catch (SQLException e) {
+            logger.error("Error while getting all dishes", e);
+        }
+        return Collections.emptyList();
     }
 
     @Override
-    public void addNewDishes(Food food) {
-        food.setId(id.incrementAndGet());
-        dishes.add(food);
+    public Optional<Food> getById(Long id) {
+        logger.debug("Get dish by id {}", id);
+        try {
+            Optional<Food> dish = foodDao.read(id);
+            logger.debug("result {}", dish);
+            return dish;
+        } catch (SQLException e) {
+            logger.error("Error while getting dishes by id " + id, e);
+        }
+        return Optional.empty();
     }
 
     @Override
-    public void removeDish(long id) {
-        for (Food dish : dishes) {
-            if (dish.getId().equals(id)) {
-                dishes.remove(dish);
-                break;
-            }
+    public Food addNewDishes(Food dish) {
+        logger.debug("add new dish {}", dish);
+        try {
+            Long id = foodDao.create(dish);
+            dish.setId(id);
+            logger.debug("result {}", id);
+        } catch (SQLException e) {
+            logger.error("Error while creating dish " + dish, e);
+        }
+        return dish;
+    }
+
+    @Override
+    public void removeDish(Long id) {
+        logger.debug("deleting dish id = {}", id);
+        try {
+            int delete = foodDao.delete(id);
+            logger.debug("result {}", delete);
+        } catch (SQLException e) {
+            logger.error("Error while deleting dish id=" + id, e);
         }
     }
 
     @Override
-    public void updateDish(Food food) {
-        for (Food dish : dishes) {
-            if (food.getId().equals(dish.getId())) {
-                dishes.remove(dish);
-                dishes.add(food);
-                break;
-            }
+    public Food updateDish(Food dish) {
+        logger.debug("updating dish {}", dish);
+        try {
+            int update = foodDao.update(dish);
+            logger.debug("result {}", update);
+        } catch (SQLException e) {
+            logger.error("Error while updating dish " + dish, e);
         }
+        return dish;
     }
 
 
