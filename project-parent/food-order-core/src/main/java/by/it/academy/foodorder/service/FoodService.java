@@ -3,13 +3,16 @@ package by.it.academy.foodorder.service;
 import by.it.academy.foodorder.models.Food;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FoodService {
     List<Food> getAllDishes();
 
-    void addNewDishes(Food food);
+    Optional<Food> getById(Long id);
 
-    void removeDish(long id);
+    Food addNewDishes(Food food);
 
-    void updateDish(Food food);
+    void removeDish(Long id);
+
+    Food updateDish(Food food);
 }
