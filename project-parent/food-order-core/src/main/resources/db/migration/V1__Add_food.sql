@@ -1,6 +1,6 @@
 CREATE TABLE Dish
 (
-    dish_id         BIGINT          NOT NULL PRIMARY KEY DEFAULT 1,
+    dish_id         BIGINT          NOT NULL PRIMARY KEY AUTO_INCREMENT,
     dish_name       VARCHAR(255)    NOT NULL,
     ingredients     VARCHAR (255)   NOT NULL,
     weight          decimal         NOT NULL,
