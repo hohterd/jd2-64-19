@@ -14,10 +14,10 @@ public class FoodDaoImpl extends AbstractDao implements FoodDao {
     private static final FoodDaoImpl INSTANCE = new FoodDaoImpl();
 
     public static final String INSERT_DISH = "INSERT INTO dish (dish_name, ingredients, weight, cooking_time, price) VALUE (?,?,?,?,?)";
-    public static final String SELECT_DISH_BY_ID = "SELECT * FROM dish WHERE id = ?";
+    public static final String SELECT_DISH_BY_ID = "SELECT * FROM dish WHERE dish_id = ?";
     public static final String SELECT_ALL_DISH = "SELECT * FROM dish";
-    public static final String UPDATE_DISH = "UPDATE dish SET dish_name = ? , ingredients = ?, weight = ?, cooking_time = ?, price = ? WHERE id = ?";
-    public static final String DELETE_DISH_BY_ID = "DELETE FROM dish WHERE id = ?";
+    public static final String UPDATE_DISH = "UPDATE dish SET dish_name = ? , ingredients = ?, weight = ?, cooking_time = ?, price = ? WHERE dish_id = ?";
+    public static final String DELETE_DISH_BY_ID = "DELETE FROM dish WHERE dish_id = ?";
 
     private FoodDaoImpl() {
         super(LoggerFactory.getLogger(FoodDaoImpl.class));
