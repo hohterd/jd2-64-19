@@ -14,6 +14,7 @@
     <modules>
         <module>food-order-web</module>
         <module>food-order-core</module>
+        <module>common-hibernate</module>
     </modules>
 
     <properties>
