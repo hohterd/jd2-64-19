@@ -1,4 +1,4 @@
-package by.it.academy.project;
+package by.it.academy.foodorder;
 
 import static org.junit.Assert.assertTrue;
 

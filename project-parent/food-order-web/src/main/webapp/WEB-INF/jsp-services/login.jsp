@@ -28,10 +28,6 @@
             <td><input type="password" name="password" value=""/></td>
         </tr>
         <tr>
-            <td><fmt:message key="login.page.user.remember"/></td>
-            <td><input type="checkbox" name="rememberMe" value="Y"/></td>
-        </tr>
-        <tr>
             <td colspan="2">
                 <input type="submit" value="<fmt:message key="login.page.submit"/>"/>
                 <a href="${pageContext.request.contextPath}/">Cancel</a>
@@ -39,6 +35,9 @@
         </tr>
     </table>
 </form>
+
+<p style="color:black;">Admin User: admin password: qwerty</p>
+<p style="color:black;">Simple User: user password: 12345</p>
 
 <jsp:include page="/WEB-INF/include/footer.jsp"/>
 </body>

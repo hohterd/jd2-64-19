@@ -1,4 +1,4 @@
-package by.it.academy.foodorder.food;
+package by.it.academy.foodorder.models;
 
 import java.util.Objects;
 
@@ -14,6 +14,15 @@ public class Food {
     private boolean delivery;
 
     public Food() {
+    }
+
+    public Food(Long id, String name, String ingredients, Long weight, Long cookingTime, Long price) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.weight = weight;
+        this.cookingTime = cookingTime;
+        this.price = price;
     }
 
     public Food(Long id, String name, Long price, String ingredients, Long discount, Long weight, Long cookingTime, boolean delivery) {

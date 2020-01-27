@@ -1,6 +1,6 @@
 package by.it.academy.foodorder.servlet;
 
-import by.it.academy.foodorder.food.Food;
+import by.it.academy.foodorder.models.Food;
 import by.it.academy.foodorder.service.FoodService;
 import by.it.academy.foodorder.service.FoodServiceImpl;
 

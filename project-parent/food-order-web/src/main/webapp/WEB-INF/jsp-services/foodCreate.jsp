@@ -3,6 +3,8 @@
 <%@ taglib prefix="a" uri="/WEB-INF/taglib/auth.tld" %>
 
 <jsp:include page="/WEB-INF/include/header.jsp"/>
+<jsp:include page="/WEB-INF/include/menu.jsp" />
+
 <html>
 <head>
     <style type="text/css">
@@ -31,6 +33,17 @@
 <body>
 <form method="post" action="${pageContext.request.contextPath}/foodCreate">
     <div class="main">
+
+        <div class="field">
+            <label for="menu">Category:</label>
+                <select id="menu" name="menuId">
+                    <c:forEach var="menu" items="${menu}">
+                        <option value="${menu.id}"
+                                <c:if test="${menuSelected == menu.id}">selected='selected'</c:if> >${menu.name}</option>
+                    </c:forEach>
+                </select>
+        </div>
+
         <div class="field">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name"/>
@@ -65,9 +78,11 @@
             <label for="delivery">Delivery:</label>
             <input type="checkbox" id="delivery" name="delivery" value="true"/>
         </div>
+
         <div class="submit">
             <input type="submit">
         </div>
+
     </div>
 </form>
 </body>
