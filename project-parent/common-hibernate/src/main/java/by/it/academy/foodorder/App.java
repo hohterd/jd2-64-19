@@ -46,7 +46,7 @@ public class App
         //ManyToMany
         session.beginTransaction();
         Employee employee = new Employee(null, "Sergey", "Korolyov",
-                LocalDateTime.now(), null, null, new ArrayList<>());
+                LocalDateTime.now(), null, null, new HashSet<>());
         Meeting meeting = new Meeting("ManyToMany");
         meeting.getEmployees().add(employee);
         session.save(meeting);

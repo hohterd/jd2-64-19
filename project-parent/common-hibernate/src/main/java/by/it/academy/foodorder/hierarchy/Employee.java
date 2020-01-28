@@ -35,10 +35,10 @@ public class Employee{
     @JoinColumn(name = "DEP_ID")
     private Departament departament;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "EMPLOYEE_MEETING",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "MEETING_ID")})
-    private List<Meeting> meetings = new ArrayList<>();
+    private Set<Meeting> meetings = new HashSet<>();
 
 }
