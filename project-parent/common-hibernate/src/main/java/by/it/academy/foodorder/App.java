@@ -1,6 +1,7 @@
 package by.it.academy.foodorder;
 
 import by.it.academy.foodorder.criteriaDAO.impl.EmployeeDaoImpl;
+import by.it.academy.foodorder.criteriaDAO.impl.HqlEmployeeDaoImpl;
 import by.it.academy.foodorder.entity.DepartamentCriteria;
 import by.it.academy.foodorder.entity.EmployeeCriteria;
 import by.it.academy.foodorder.entity.UserExample;
@@ -11,6 +12,7 @@ import by.it.academy.foodorder.hierarchy.Meeting;
 import by.it.academy.foodorder.util.HibernateUtil;
 import by.it.academy.foodorder.util.HibernateUtilEntityManager;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
@@ -26,50 +28,26 @@ public class App
 {
     public static void main( String[] args ){
 
-        EmployeeDaoImpl employeeDao = EmployeeDaoImpl.getINSTANCE();
+        HqlEmployeeDaoImpl hqlEmployeeDao = HqlEmployeeDaoImpl.getINSTANCE();
 
         DepartamentCriteria departament = new DepartamentCriteria("Dev");
         DepartamentCriteria departament2 = new DepartamentCriteria("Marketing");
-        DepartamentCriteria departament3 = new DepartamentCriteria("DBA");
-
-        EmployeeCriteria employee = new EmployeeCriteria
-                (null, "Sergey", 500.0, 23, departament);
-
-        EmployeeCriteria employee2 = new EmployeeCriteria
-                (null, "Sergey", 300.0, 25, departament2);
-
-        EmployeeCriteria employee2_null = new EmployeeCriteria
-                (null, null, 1700.0, 25, departament2);
-
-        EmployeeCriteria employee3 = new EmployeeCriteria
-                (null, "Nikolay", 700.0, 30, departament3);
+        EmployeeCriteria employee = new EmployeeCriteria(null,"Sergey", 500.0, 23, departament);
+        EmployeeCriteria employee2 = new EmployeeCriteria(null,"Nikolay", 400.0, 24, departament);
+        EmployeeCriteria employee3 = new EmployeeCriteria(null,null, 1200.0, 26, departament2);
 
         Session session = HibernateUtil.getSessionFactory().openSession();
+
         session.beginTransaction();
         session.save(departament);
         session.save(departament2);
-        session.save(departament3);
         session.save(employee);
         session.save(employee2);
-        session.save(employee2_null);
         session.save(employee3);
         session.getTransaction().commit();
         session.close();
 
-        System.err.println(employeeDao.getAll() + "\n" +
-        employeeDao.getByName("Sergey") + "\n" +
-        employeeDao.getAllWithNameNotNull()+ "\n" +
-        employeeDao.getSalaryGreaterThan(600.0) + "\n" +
-        employeeDao.getSalaryGreaterThanOrderDesc(400.0) + "\n" +
-        employeeDao.getSalaryLessOrEqual(500.0) + "\n" +
-        employeeDao.getByAgeAndName("Sergey", 23) + "\n" +
-        employeeDao.getByAgeBetween(20, 25) + "\n" +
-        employeeDao.getByAgeOrName("Nikolay", 25) + "\n" +
-        employeeDao.getEmployeeCount() + "\n" +
-        employeeDao.getAverageSalary() + "\n" +
-        employeeDao.getMaxSalary() + "\n" +
-        employeeDao.getMinAge() + "\n" +
-        employeeDao.getAverageSalaryByDep(2L));
+        System.err.println(hqlEmployeeDao.getAverageSalaryByDep(1L));
 
         HibernateUtil.shutdown();
     }
