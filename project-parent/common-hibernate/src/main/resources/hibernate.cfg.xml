@@ -15,5 +15,7 @@
         <mapping class="by.it.academy.foodorder.hierarchy.EmployeeDetail"></mapping>
         <mapping class="by.it.academy.foodorder.hierarchy.Departament"></mapping>
         <mapping class="by.it.academy.foodorder.hierarchy.Meeting"></mapping>
+        <mapping class="by.it.academy.foodorder.entity.DepartamentCriteria"></mapping>
+        <mapping class="by.it.academy.foodorder.entity.EmployeeCriteria"></mapping>
     </session-factory>
 </hibernate-configuration>

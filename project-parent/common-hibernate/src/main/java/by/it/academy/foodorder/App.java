@@ -1,5 +1,9 @@
 package by.it.academy.foodorder;
 
+import by.it.academy.foodorder.criteriaDAO.impl.EmployeeDaoImpl;
+import by.it.academy.foodorder.criteriaDAO.impl.HqlEmployeeDaoImpl;
+import by.it.academy.foodorder.entity.DepartamentCriteria;
+import by.it.academy.foodorder.entity.EmployeeCriteria;
 import by.it.academy.foodorder.entity.UserExample;
 import by.it.academy.foodorder.hierarchy.Departament;
 import by.it.academy.foodorder.hierarchy.Employee;
@@ -8,6 +12,7 @@ import by.it.academy.foodorder.hierarchy.Meeting;
 import by.it.academy.foodorder.util.HibernateUtil;
 import by.it.academy.foodorder.util.HibernateUtilEntityManager;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
@@ -22,15 +27,28 @@ import java.util.HashSet;
 public class App 
 {
     public static void main( String[] args ){
-        UserExample user = new UserExample(null, "Sergey", "admin", 23);
-        EntityManager entityManager = HibernateUtilEntityManager.getEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(user);
-        entityManager.getTransaction().commit();
 
+        HqlEmployeeDaoImpl hqlEmployeeDao = HqlEmployeeDaoImpl.getINSTANCE();
 
-        entityManager.getTransaction().begin();
-        UserExample userFromDB = entityManager.find(UserExample.class, user.getId());
-        System.err.println(userFromDB);
+        DepartamentCriteria departament = new DepartamentCriteria("Dev");
+        DepartamentCriteria departament2 = new DepartamentCriteria("Marketing");
+        EmployeeCriteria employee = new EmployeeCriteria(null,"Sergey", 500.0, 23, departament);
+        EmployeeCriteria employee2 = new EmployeeCriteria(null,"Nikolay", 400.0, 24, departament);
+        EmployeeCriteria employee3 = new EmployeeCriteria(null,null, 1200.0, 26, departament2);
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        session.beginTransaction();
+        session.save(departament);
+        session.save(departament2);
+        session.save(employee);
+        session.save(employee2);
+        session.save(employee3);
+        session.getTransaction().commit();
+        session.close();
+
+        System.err.println(hqlEmployeeDao.getAverageSalaryByDep(1L));
+
+        HibernateUtil.shutdown();
     }
 }
