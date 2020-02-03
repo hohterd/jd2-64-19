@@ -1,9 +1,18 @@
 package by.it.academy.foodorder;
 
-import by.it.academy.foodorder.entity.Address;
-import by.it.academy.foodorder.entity.Person;
+import by.it.academy.foodorder.entity.UserExample;
+import by.it.academy.foodorder.hierarchy.Departament;
+import by.it.academy.foodorder.hierarchy.Employee;
+import by.it.academy.foodorder.hierarchy.EmployeeDetail;
+import by.it.academy.foodorder.hierarchy.Meeting;
 import by.it.academy.foodorder.util.HibernateUtil;
+import by.it.academy.foodorder.util.HibernateUtilEntityManager;
 import org.hibernate.Session;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 
 /**
@@ -13,19 +22,15 @@ import org.hibernate.Session;
 public class App 
 {
     public static void main( String[] args ){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        UserExample user = new UserExample(null, "Sergey", "admin", 23);
+        EntityManager entityManager = HibernateUtilEntityManager.getEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
 
-        Person person = new Person(null, "serg","koro", 23, new Address("Kalvariyskaya", "Minsk", "222000"), null);
 
-        session.save(person);
-        session.getTransaction().commit();
-        session.close();
-
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        System.err.println(session.get(Person.class, 1L));
-        session.close();
-        HibernateUtil.shutdown();
+        entityManager.getTransaction().begin();
+        UserExample userFromDB = entityManager.find(UserExample.class, user.getId());
+        System.err.println(userFromDB);
     }
 }
