@@ -15,6 +15,7 @@
         <module>food-order-web</module>
         <module>food-order-core</module>
         <module>common-hibernate</module>
+        <module>foodorder-spring</module>
     </modules>
 
     <properties>
