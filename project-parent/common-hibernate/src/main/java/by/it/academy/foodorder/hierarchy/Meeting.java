@@ -3,6 +3,7 @@ package by.it.academy.foodorder.hierarchy;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,8 +24,8 @@ public class Meeting {
     private String nameMeeting;
     private LocalDateTime dateTime;
 
-    @ManyToMany(mappedBy = "meetings")
-    private List<Employee> employees = new ArrayList<>();
+    @ManyToMany(mappedBy = "meetings", fetch = FetchType.LAZY)
+    private Set<Employee> employees = new HashSet<>();
 
     public Meeting(String name){
         this.nameMeeting = name;
