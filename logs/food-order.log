@@ -1,0 +1,20 @@
+2020-02-19 15:12:31,677 INFO by.it.academy.foodorder.annotations.User [main] User init method
+2020-02-19 15:12:31,677 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Service Post Construct
+2020-02-19 15:12:31,693 INFO by.it.academy.foodorder.annotations.Main [main] User service getName: Name from NoXmlConfig
+2020-02-19 15:12:31,693 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Serivce Pre Destroy
+2020-02-19 15:12:31,693 INFO by.it.academy.foodorder.annotations.User [main] User destroy method
+2020-02-19 15:15:03,185 INFO by.it.academy.foodorder.annotations.User [main] User init method
+2020-02-19 15:15:03,200 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Service Post Construct
+2020-02-19 15:15:03,216 INFO by.it.academy.foodorder.annotations.Main [main] User service getName: Name from NoXmlConfig
+2020-02-19 15:15:03,216 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Serivce Pre Destroy
+2020-02-19 15:15:03,216 INFO by.it.academy.foodorder.annotations.User [main] User destroy method
+2020-02-19 15:15:39,204 INFO by.it.academy.foodorder.annotations.User [main] User init method
+2020-02-19 15:15:39,204 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Service Post Construct
+2020-02-19 15:15:39,220 INFO by.it.academy.foodorder.annotations.Main [main] User service getName: Name from NoXmlConfig
+2020-02-19 15:15:39,220 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Serivce Pre Destroy
+2020-02-19 15:15:39,220 INFO by.it.academy.foodorder.annotations.User [main] User destroy method
+2020-02-19 15:15:56,013 INFO by.it.academy.foodorder.annotations.User [main] User init method
+2020-02-19 15:15:56,013 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Service Post Construct
+2020-02-19 15:15:56,044 INFO by.it.academy.foodorder.annotations.Main [main] User service getName: Name from NoXmlConfig
+2020-02-19 15:15:56,060 INFO by.it.academy.foodorder.annotations.UserServiceImpl [main] User Serivce Pre Destroy
+2020-02-19 15:15:56,060 INFO by.it.academy.foodorder.annotations.User [main] User destroy method
