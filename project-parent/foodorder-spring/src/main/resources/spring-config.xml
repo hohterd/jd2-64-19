@@ -1,34 +1,19 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
 <beans xmlns = "http://www.springframework.org/schema/beans"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context.xsd">
+    
+    <context:annotation-config/>
+    
+    <context:component-scan base-package="by.it.academy.foodorder.annotations">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:exclude-filter type="assignable" expression="by.it.academy.foodorder.annotations.CompanyAddress"/>
+    </context:component-scan>
 
-    <bean id="person" class="by.it.academy.foodorder.beans.Person"
-    p:id="1" p:name="Sergey" p:surname="Korolyov" p:department-ref="department"
-    p:personInfo-ref="personInfo" p:meetings-ref="meetings"/>
-
-    <bean id="personInfo" class="by.it.academy.foodorder.beans.PersonInfo"
-    p:id="1" p:phoneNumber="+375293426715" p:salary="500.0"/>
-
-    <bean id="department" class="by.it.academy.foodorder.beans.Department"
-        p:id="1" p:name="development">
-        <property name="employees">
-            <list>
-                <ref bean="person"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="meetings" class="by.it.academy.foodorder.beans.Meeting"
-        p:id="1">
-        <property name="personList">
-            <list>
-                <ref bean="person"/>
-            </list>
-        </property>
-    </bean>
-
+    
 </beans>
