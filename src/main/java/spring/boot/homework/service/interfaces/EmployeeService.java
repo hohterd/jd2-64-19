@@ -1,6 +1,7 @@
 package spring.boot.homework.service.interfaces;
 
 import org.springframework.stereotype.Service;
+import spring.boot.homework.entity.Department;
 import spring.boot.homework.entity.Employee;
 
 import java.util.List;
@@ -15,6 +16,8 @@ public interface EmployeeService {
     void updateEmployeeById(Long id);
 
     Employee updateEmployee(Employee employee);
+
+    List<Employee> getAllByDepId(Long id);
 
     void deleteEmployeeById(Long id);
 

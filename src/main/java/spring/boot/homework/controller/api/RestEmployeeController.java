@@ -1,9 +1,10 @@
-package spring.boot.homework.controller;
+package spring.boot.homework.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import spring.boot.homework.entity.Department;
 import spring.boot.homework.entity.Employee;
 import spring.boot.homework.service.interfaces.EmployeeService;
 
