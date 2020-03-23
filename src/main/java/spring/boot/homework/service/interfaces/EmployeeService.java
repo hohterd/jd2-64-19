@@ -1,7 +1,6 @@
 package spring.boot.homework.service.interfaces;
 
 import org.springframework.stereotype.Service;
-import spring.boot.homework.entity.Department;
 import spring.boot.homework.entity.Employee;
 
 import java.util.List;

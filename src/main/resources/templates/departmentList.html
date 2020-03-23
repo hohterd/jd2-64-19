@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Department List</title>
+
+</head>
+<body>
+<h1>Department List</h1>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Employees</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each ="department : ${list}">
+        <td th:utext="${department.departmentId}">...</td>
+        <td th:utext="${department.departmentName}">...</td>
+        <td>
+            <div th:if="${department.employees != null and not #lists.isEmpty(department.employees)}">
+                <div th:utext="${department.employees}"></div>
+            </div>
+            <div th:if="${department.employees == null or #lists.isEmpty(department.employees)}">
+                No employees were found
+            </div>
+        </td>
+        <td>
+            <form th:action="@{/deleteDepartment/{id}(id=${department.departmentId})}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+
+        <td>
+            <form th:action="@{/updateDepartment/{id}(id=${department.departmentId})}">
+                <button type="submit" >Update</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<br/>
+</body>
+</html>

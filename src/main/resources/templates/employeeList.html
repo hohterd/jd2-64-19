@@ -8,32 +8,34 @@
 <body>
 <h1>Employee List</h1>
 
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Create Time</th>
-            <th>Delete</th>
-            <th>Update</th>
-        </tr>
-        <tr th:each ="employee : ${list}">
-            <td th:utext="${employee.id}">...</td>
-            <td th:utext="${employee.firstName}">...</td>
-            <td th:utext="${employee.lastName}">...</td>
-            <td th:utext="${employee.date}">...</td>
-            <td>
-                <form th:action="@{/deleteEmployee/{id}(id=${employee.id})}">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/updateEmployee/{id}(id=${employee.id})}">
-                    <button type="submit" >Update</button>
-                </form>
-            </td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Department</th>
+        <th>Create Time</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each ="employee : ${list}">
+        <td th:utext="${employee.id}">...</td>
+        <td th:utext="${employee.name}">...</td>
+        <td th:utext="${employee.surname}">...</td>
+        <td th:utext="${employee.department.departmentName}">...</td>
+        <td th:utext="${employee.date}">...</td>
+        <td>
+            <form th:action="@{/deleteEmployee/{id}(id=${employee.id})}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/updateEmployee/{id}(id=${employee.id})}">
+                <button type="submit" >Update</button>
+            </form>
+        </td>
+    </tr>
+</table>
 
 <br/>
 </body>

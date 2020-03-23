@@ -1,4 +1,4 @@
-package spring.boot.homework.controller;
+package spring.boot.homework.controller.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

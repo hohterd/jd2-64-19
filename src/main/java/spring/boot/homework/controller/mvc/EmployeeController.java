@@ -1,4 +1,4 @@
-package spring.boot.homework.controller;
+package spring.boot.homework.controller.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import spring.boot.homework.entity.Employee;
+import spring.boot.homework.service.interfaces.DepartmentService;
 import spring.boot.homework.service.interfaces.EmployeeService;
 
 import java.util.List;
@@ -18,9 +19,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private DepartmentService departmentService;
+
     @RequestMapping(value="/createEmployee", method = RequestMethod.GET)
     public String getEmployee(Model model){
         model.addAttribute("employee", new Employee());
+        model.addAttribute("departments", departmentService.getAllDepartments());
         return "createEmployee";
     }
 
@@ -46,6 +51,7 @@ public class EmployeeController {
     @RequestMapping(value = "updateEmployee/{id}", method = RequestMethod.GET)
     public String getUpdate(Model model, @PathVariable("id") String id){
         model.addAttribute("employee", employeeService.getEmployeeById(Long.valueOf(id)));
+        model.addAttribute("departments", departmentService.getAllDepartments());
         return "updateEmployee";
     }
 
@@ -57,3 +63,4 @@ public class EmployeeController {
     }
 
 }
+

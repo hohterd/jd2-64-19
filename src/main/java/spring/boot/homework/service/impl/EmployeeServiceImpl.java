@@ -3,7 +3,6 @@ package spring.boot.homework.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import spring.boot.homework.entity.Department;
 import spring.boot.homework.entity.Employee;
 import spring.boot.homework.repository.EmployeeRepository;
 import spring.boot.homework.service.interfaces.EmployeeService;
